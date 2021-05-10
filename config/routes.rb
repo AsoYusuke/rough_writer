@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   #会員
   scope module: :user do
+    root 'homes#top'
     resources :posts
       resource :evaluations, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
