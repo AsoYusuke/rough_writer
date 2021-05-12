@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <table class="table">
+        <tbody>
+          <tr><%= attachment_image_tag current_user, :profile_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %></tr><br>
+          <tr><%= @user.name %></tr>
+          <tr>
+            <th>フォロー N</th>
+            <th>フォロワー N</th>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+          <tr>
+            <th>生年月日</th>
+            <th><%= @user.birth_date %></th>
+          </tr>
+        </tbody>
+      </table>
+      <!--もしログインしているユーザーなら編集ボタンを表示-->
+      <% if @user.id == current_user.id %>
+        <div class='row'>
+          <%= link_to '',edit_user_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user}" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

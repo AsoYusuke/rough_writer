@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 
   #管理側
   namespace :admin do
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :posts
       resource :evaluations, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
-    resources :user
+    resources :users
       resource :relationships, only: [:create, :destroy]
       get 'followeds' => 'users#followeds', as: 'followeds'
       get 'followers' => 'users#followers', as: 'followers'
