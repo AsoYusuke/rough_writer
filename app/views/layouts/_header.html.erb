@@ -12,7 +12,7 @@
             <div class="nav-link text-light mr-5 mt-3">
               ようこそ <%= current_user.name %> さん
             </div>
-            <li><%= link_to ' 投稿する', class: "nav-link text-light fas fa-user-circle" %></li>
+            <li><%= link_to ' 投稿する', new_post_path, class: "nav-link text-light fas fa-user-circle" %></li>
             <li><%= link_to ' ランキング', class: "nav-link text-light fas fa-user-circle" %></li>
             <li><%= link_to ' チャット', class: "nav-link text-light fas fa-birthday-cake" %></li>
             <li><%= link_to ' マイページ', user_path(current_user), class: "nav-link text-light fas fa-shopping-cart" %></li>
