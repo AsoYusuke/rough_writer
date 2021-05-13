@@ -4,12 +4,23 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :ユーザー名 %><br />
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :生年月日 %><br />
+    <!--選択バー作成-->
+    <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -17,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :確認パスワード %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
