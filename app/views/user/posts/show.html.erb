@@ -1,7 +1,48 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      
+      <table class="table">
+        <tr>
+          <td>
+            <%= attachment_image_tag(@post.user, :profile_image, size: "60x60", format: 'jpeg', fallback: "no_image.jpg") %><br>
+            <%= @post.user.name %>
+          </td>
+          <td>
+            <%= @post.title %><br>
+            <%= @post.body %><br>
+            <% if @post.user == current_user %>
+              <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_book_#{@post.id}" %>
+              <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
+            <% end %>
+          </td>
+          <td>
+            <% if user_signed_in? %>
+              <% if current_user.following?(@user) %>
+                <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+              <% else %>
+                <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+              <% end %>
+            <% end %>
+
+            <!--%= attachment_image_tag @post, :image, size: '200x150', class:"attachment product product_image fallback"%>-->
+          </td>
+        </tr>
+      </table>
+
+      <div class="new-comment">
+        <%= form_with(model:[@post, @comment], local: true) do |f| %>
+          <%= f.text_area :comments_body,　placeholder: "コメントをここに" %>
+          <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+
+      <div class="comments">
+        <p>コメント件数：<%= @post.comments.count %></p>
+        <% @post.comments.each do |comment| %>
+          <%= comment.user.name %>
+          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comments_body %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -5,8 +5,10 @@
         <tbody>
           <% @posts.each do |post| %>
             <tr>
-              <td><%= attachment_image_tag(post.user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg") %><br>
-                  <%= post.user.name %></td>
+              <td>
+                <%= attachment_image_tag(post.user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg") %><br>
+                <%= post.user.name %>
+              </td>
               <td><%= post.title %></td>
             </tr>
           <% end %>

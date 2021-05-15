@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+gem 'activeadmin'
+gem "active_material", github: "vigetlabs/active_material"
