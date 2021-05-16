@@ -1,0 +1,4 @@
+<% post.comments.each do |comment| %>
+   <p><%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "no_image.jpg") %></p>
+
+ <% end %>
