@@ -12,8 +12,13 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   attachment :profile_image, destroy: false
   has_many :comments, dependent: :destroy
+
   has_many :goods, dependent: :destroy
   has_many :bads, dependent: :destroy
+
+  has_many :user_rooms
+  has_many :chats
+  has_many :rooms, through: :user_rooms
 
   # ユーザーをフォローする
   def follow(user_id)
