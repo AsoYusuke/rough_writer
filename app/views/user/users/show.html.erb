@@ -28,10 +28,11 @@
       <% if @user != current_user %>
         <% if user_signed_in? %>
           <% if current_user.following?(@user) %>
-            <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+            <%= link_to 'フォロー外す', user_unfollow_path(@user.id), method: :POST %>
           <% else %>
-            <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+            <%= link_to 'フォローする', user_follow_path(@user.id), method: :POST %>
           <% end %>
+          <%= link_to 'チャットする', chat_path(@user.id) %>
         <% end %>
       <% end %>
 
