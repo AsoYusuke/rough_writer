@@ -21,7 +21,6 @@ before_action :authenticate_user!
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @user = User.find(params[:id])
   end
 
   def edit

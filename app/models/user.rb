@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   attachment :profile_image, destroy: false
-  has_many :evaluations, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :goods, dependent: :destroy
 
 
   # ユーザーをフォローする

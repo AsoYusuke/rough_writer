@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   scope module: :user do
     root 'homes#top'
     resources :posts do
-      resource :evaluations, only: [:create, :destroy]
+      resource :goods, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
     resources :users
