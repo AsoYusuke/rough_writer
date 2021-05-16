@@ -21,12 +21,14 @@ Rails.application.routes.draw do
   #会員
   scope module: :user do
     root 'homes#top'
-    resources :posts
-      resource :evaluations, only: [:create, :destroy]
+    resources :posts do
+      resource :goods, only: [:create, :destroy]
+      resource :bads, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
+    end
     resources :users
       resource :relationships, only: [:create, :destroy]
-      get 'followeds' => 'users#followeds', as: 'followeds'
-      get 'followers' => 'users#followers', as: 'followers'
+      post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+      post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   end
 end

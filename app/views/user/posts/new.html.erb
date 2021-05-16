@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h2>新規投稿</h2>
+      <!--部分テンプレ準備する-->
       <%= form_with model: @post, local:true do |f| %>
         <div class="form_input">
           <%= f.label :genre_id, "ジャンル" %><br/>
