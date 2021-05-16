@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_060126) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "good", null: false
