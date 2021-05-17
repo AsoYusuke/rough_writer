@@ -21,6 +21,8 @@ before_action :authenticate_user!
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    #新着順で表示
+    @comments = @post.comments.order(created_at: :desc)
   end
 
   def edit
