@@ -11,33 +11,13 @@
             <%= @post.title %><br>
             <%= @post.body %><br>
             <!--goodボタン-->
-            <% if @post.gooded_by?(current_user) %>
-              <p>
-                <%= link_to post_goods_path(@post), method: :delete do %>
-                  ♥<%= @post.goods.count %>
-                <% end %>
-              </p>
-              <% else %>
-              <p>
-                <%= link_to post_goods_path(@post), method: :post do %>
-                  ♡<%= @post.goods.count %>
-                <% end %>
-              </p>
-            <% end %>
+            <div id="show_good_<%= @post.id %>">
+              <%= render 'user/goods/good', post: @post %>
+            </div>
             <!--badボタン-->
-            <% if @post.baded_by?(current_user) %>
-              <p>
-                <%= link_to post_bads_path(@post), method: :delete do %>
-                  だめ<%= @post.bads.count %>
-                <% end %>
-              </p>
-              <% else %>
-              <p>
-                <%= link_to post_bads_path(@post), method: :post do %>
-                  かいじょ<%= @post.bads.count %>
-                <% end %>
-              </p>
-            <% end %>
+            <div id="show_bad_<%= @post.id %>">
+              <%= render 'user/bads/bad', post: @post %>
+            </div>
 
             <% if @post.user == current_user %>
               <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_book_#{@post.id}" %>

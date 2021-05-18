@@ -1,0 +1,15 @@
+<% posts.each do |post| %>
+  <%= link_to post_path(post) do %>
+      <%= attachment_image_tag post, :image, size: "190x190", class: "coffee_image_media" %>
+  <% end %>
+  <%= link_to user_path(post.user_id) do %>
+      <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class:"profile-img-circle", size: "30x30" %>
+      <%= post.user.name %>
+  <% end %>
+  <div id="index_good_<%= post.id %>">
+    <%= render 'goods/good', post: post %>
+  </div>
+  <div id="index_bad_<%= post.id %>">
+    <%= render 'bads/bad', post: post %>
+  </div>
+<% end %>
