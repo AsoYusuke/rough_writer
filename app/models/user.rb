@@ -23,6 +23,14 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
+  def already_gooded?(post)
+   self.goods.exists?(post_id: post.id)
+  end
+
+  def already_baded?(post)
+   self.bads.exists?(post_id: post.id)
+  end
+
 
   # ユーザーをフォローする
   def follow(user_id)
