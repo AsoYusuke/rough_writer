@@ -17,7 +17,7 @@ class Post < ApplicationRecord
   # def baded_by?(user)
   #   bads.where(user_id: user.id).exists?
   # end
-  
+
   #good通知
   def create_notification_by(current_user)
       notification = current_user.active_notifications.new(
@@ -27,7 +27,7 @@ class Post < ApplicationRecord
       )
       notification.save if notification.valid?
   end
-  
+
   # #bad通知
   # def create_notification_by(current_user)
   #     notification = current_user.active_notifications.new(
