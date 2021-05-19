@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+   <div class="col-lg-10">
+     <h2>商品一覧</h2>
+   </div>
+   <div class="col-lg-10">
+      <table class="table">
+       <div class="text-right">
+         <%= link_to new_admin_post_path, class: "btn btn-secondary text-right" do %>
+         <i class="fas fa-plus-circle"></i>
+         <% end %></div>
+       <thead>
+        <tr>
+         <th>投稿ID</th>
+         <th>タイトル</th>
+         <th>ジャンル</th>
+         <th>投稿画像</th>
+         <th>高評価</th>
+         <th>低評価</th>
+        </tr>
+      </thead>
+       <tbody>
+        <% @posts.each do |post| %>
+        <tr>
+         <td><%= post.id %></td>
+         <td><%= post.title %></td>
+         <td><%= post.genre.genre_name %></td>
+         <td><%= attachment_image_tag current_user, :image, size: "40x40", format: 'jpeg', fallback: "no_image2.jpg" %></td>
+         <td></td>
+
+        </tr>
+        <% end %>
+       </tbody>
+      </table>
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>

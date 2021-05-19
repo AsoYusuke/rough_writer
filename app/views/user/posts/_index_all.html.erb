@@ -6,10 +6,11 @@
       <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class:"profile-img-circle", size: "30x30" %>
       <%= post.user.name %>
   <% end %>
+  <%= post.title %>
   <div id="index_good_<%= post.id %>">
-    <%= render 'goods/good', post: post %>
+    <%= render 'user/goods/good', post: post %>
   </div>
   <div id="index_bad_<%= post.id %>">
-    <%= render 'bads/bad', post: post %>
+    <%= render 'user/bads/bad', post: post %>
   </div>
 <% end %>

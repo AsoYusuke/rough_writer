@@ -20,8 +20,8 @@
             <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-light fas fa-sign-out-alt" %></li>
           <% elsif admin_signed_in? %>
           <!--adminのヘッダー-->
-            <li><%= link_to ' 投稿一覧', class: "nav-link text-light fas fa-users" %></li>
-            <li><%= link_to ' ユーザー一覧', class: "nav-link text-light fas fa-list-alt" %></li>
+            <li><%= link_to ' 投稿一覧', admin_posts_path, class: "nav-link text-light fas fa-users" %></li>
+            <li><%= link_to ' ユーザー一覧', admin_users_path, class: "nav-link text-light fas fa-list-alt" %></li>
             <li><%= link_to ' ジャンル一覧', admin_genres_path, class: "nav-link text-light fas fa-tags" %></li>
             <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-light fas fa-sign-out-alt" %></li>
           <% else %>
