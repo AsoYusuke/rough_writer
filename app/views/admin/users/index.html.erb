@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h2>会員一覧</h2>
+    </div>
+    <div class="col-md-9 mt-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>プロフィール画像</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= attachment_image_tag current_user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %></td>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @users %>
+    </div>
+  </div>
+</div>

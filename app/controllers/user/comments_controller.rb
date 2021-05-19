@@ -1,5 +1,6 @@
 class User::CommentsController < ApplicationController
 
+
   def create
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
@@ -14,8 +15,7 @@ class User::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    render :index
+    @comment.destroy!
   end
 
   private
