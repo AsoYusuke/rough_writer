@@ -12,23 +12,23 @@
             <div class="nav-link text-light mr-5 mt-3">
               ようこそ <%= current_user.name %> さん
             </div>
-            <li><%= link_to ' 投稿する', new_post_path, class: "nav-link text-light fas fa-user-circle" %></li>
-            <li><%= link_to ' ランキング', posts_path, class: "nav-link text-light fas fa-user-circle" %></li>
-            <li><%= link_to ' チャット', class: "nav-link text-light fas fa-birthday-cake" %></li>
-            <li><%= link_to ' マイページ', user_path(current_user), class: "nav-link text-light fas fa-shopping-cart" %></li>
-            <li><%= link_to ' 通知', notifications_path, class: "nav-link text-light fas fa-shopping-cart" %></li>
-            <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-light fas fa-sign-out-alt" %></li>
+            <li class="header-items"><%= link_to ' 投稿する', new_post_path, class: "nav-link text-light fas fa-user-circle" %></li>
+            <li class="header-items"><%= link_to ' ランキング', posts_path, class: "nav-link text-light fas fa-user-circle" %></li>
+            <li class="header-items"><%= link_to ' チャット', class: "nav-link text-light fas fa-birthday-cake" %></li>
+            <li class="header-items"><%= link_to ' マイページ', user_path(current_user), class: "nav-link text-light fas fa-shopping-cart" %></li>
+            <li class="header-items"><%= link_to ' 通知', notifications_path, class: "nav-link text-light fas fa-shopping-cart" %></li>
+            <li class="header-items"><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-light fas fa-sign-out-alt" %></li>
           <% elsif admin_signed_in? %>
           <!--adminのヘッダー-->
-            <li><%= link_to ' 投稿一覧', admin_posts_path, class: "nav-link text-light fas fa-users" %></li>
-            <li><%= link_to ' ユーザー一覧', admin_users_path, class: "nav-link text-light fas fa-list-alt" %></li>
-            <li><%= link_to ' ジャンル一覧', admin_genres_path, class: "nav-link text-light fas fa-tags" %></li>
-            <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-light fas fa-sign-out-alt" %></li>
+            <li class="header-items"><%= link_to ' 投稿一覧', admin_posts_path,class: "nav-link text-light fas fa-users" %></li>
+            <li class="header-items"><%= link_to ' ユーザー一覧', admin_users_path, class: "nav-link text-light fas fa-list-alt" %></li>
+            <li class="header-items"><%= link_to ' ジャンル一覧', admin_genres_path, class: "nav-link text-light fas fa-tags" %></li>
+            <li class="header-items"><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-light fas fa-sign-out-alt" %></li>
           <% else %>
           <!--ログイン前のヘッダー-->
-            <li><%= link_to ' ランキング', class: "nav-link text-light fas fa-grin-stars" %></li>
-            <li><%= link_to ' 新規登録', new_user_registration_path, class: "nav-link text-light fas fa-user-plus" %></li>
-            <li><%= link_to ' ログイン', new_user_session_path, class: "nav-link text-light fas fa-sign-in-alt" %></li>
+            <li class="header-items"><%= link_to ' ランキング', class: "nav-link text-light fas fa-grin-stars" %></li>
+            <li class="header-items"><%= link_to ' 新規登録', new_user_registration_path, class: "nav-link text-light fas fa-user-plus" %></li>
+            <li class="header-items"><%= link_to ' ログイン', new_user_session_path, class: "nav-link text-light fas fa-sign-in-alt" %></li>
           <% end %>
         </ul>
       </div>

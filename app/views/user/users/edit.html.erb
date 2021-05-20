@@ -3,6 +3,12 @@
     <div class="col-md-6 offset-md-3">
       <h2>登録情報編集</h2>
       <%= form_with model: @user, local: :true do |f| %>
+      
+        <div class="field">
+          <%= attachment_image_tag(current_user, :profile_image, :id => "preview", :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %></br>
+          <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+        </div>
+        
         <div class="field">
           <%= f.label :ユーザー名 %></br>
           <%= f.text_field :name, autofocus: true, class: "name" %>
@@ -11,11 +17,6 @@
         <div class="field">
           <%= f.label :自己紹介 %></br>
           <%= f.text_field :introduction, autofocus: true, class: "form-control introduction" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :プロフィール画像 %></br>
-          <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
         </div>
 
         <div class="field">
