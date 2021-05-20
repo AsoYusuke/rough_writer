@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :user do
+    get 'chats/show'
+  end
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -26,9 +29,14 @@ Rails.application.routes.draw do
       resource :bads, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :users
+    resources :users do
       resource :relationships, only: [:create, :destroy]
       post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
       post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+    end
+    get 'chat/:id' => 'chats#show', as: 'chat'
+    resources :chats, only: [:create]
+    resources :notifications, only: :index
+    delete 'notifications/destroy_all'    => 'notifications#destroy_all'
   end
 end

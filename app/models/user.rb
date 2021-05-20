@@ -12,8 +12,25 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   attachment :profile_image, destroy: false
   has_many :comments, dependent: :destroy
+
   has_many :goods, dependent: :destroy
   has_many :bads, dependent: :destroy
+
+  has_many :user_rooms
+  has_many :chats
+  has_many :rooms, through: :user_rooms
+
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
+  def already_gooded?(post)
+   self.goods.exists?(post_id: post.id)
+  end
+
+  def already_baded?(post)
+   self.bads.exists?(post_id: post.id)
+  end
+
 
   # ユーザーをフォローする
   def follow(user_id)
@@ -28,6 +45,18 @@ class User < ApplicationRecord
   # フォローしていればtrueを返す
   def following?(user)
     following_user.include?(user)
+  end
+
+  #フォロー時の通知
+  def create_notification_follow!(current_user, visited_id)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, visited_id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: visited_id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 
 end
