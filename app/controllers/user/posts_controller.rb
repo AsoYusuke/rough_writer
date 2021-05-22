@@ -20,6 +20,7 @@ before_action :authenticate_user!
 
   def show
     @post = Post.find(params[:id])
+    @post.user = current_user
     @comment = Comment.new
     #新着順で表示
     @comments = @post.comments.order(created_at: :desc)
@@ -47,6 +48,11 @@ before_action :authenticate_user!
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+  end
+
+  def search
+    selection = params[:keyword]
+    @posts = Post.sort(selection)
   end
 
   private

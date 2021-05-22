@@ -24,19 +24,21 @@ Rails.application.routes.draw do
   #会員
   scope module: :user do
     root 'homes#top'
+    get 'search' => 'posts#search'
     resources :posts do
+
       resource :goods, only: [:create, :destroy]
       resource :bads, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :users do
+    resources :users, only: [:show, :update, :edit] do
       resource :relationships, only: [:create, :destroy]
       post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
       post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
     end
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]
-    resources :notifications, only: :index
+    resources :notifications, only: [:index]
     delete 'notifications/destroy_all'    => 'notifications#destroy_all'
   end
 end

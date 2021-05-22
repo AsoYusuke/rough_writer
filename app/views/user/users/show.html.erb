@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
     <div class="row">
-      <div class="col-4">
+      <div class="col-4 text-center">
         <tr><%= attachment_image_tag current_user, :profile_image, size: "150x150", fallback: "no_image.jpg", class: "mt-3 rounded-circle" %></tr><br>
-        <div class="user-name">
+        <div class="user-name mt-2">
           <tr><%= @user.name %></tr>
         </div>
       </div>

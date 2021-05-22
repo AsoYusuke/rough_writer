@@ -26,12 +26,69 @@
 }
 
 // ヘッダー
-.header-items {
-  margin-top: 15px;
+.navbar {
+  height: 90px;
+  background-color: rgba(32, 178, 170, 0.8);
 }
 
-// userのshow
+.header_logo {
+  width: 200px;
+  height: auto;
+}
+
+// top
+.slick-slide img {
+  margin: 0 auto;
+}
+
+.slick-slide {
+  width: auto !important;
+}
+
+.header-items {
+  margin-top: 13px;
+}
+
+// post/new
+.new-post {
+  color : #666;
+}
+
+// post/search
+.index_search{
+  margin-left: 400px;
+  margin-bottom: 50px;
+}
+
+.search-text {
+  margin-left: 20px;
+  color: #666;
+}
+
+// user/show
 .text-count {
   margin-left : 200px;
   color: #666;
 }
+
+// user/edit
+.user-edit {
+  color : #666;
+}
+
+// フッター
+footer {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  background-color: rgba(248, 248, 255, 0.5);
+  position: relative;
+  bottom: 0;
+}
+
+.footer-text {
+  line-height: 70px;
+  color: #666;
+  text-align: center;
+}
+
