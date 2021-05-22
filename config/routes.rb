@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   scope module: :user do
     root 'homes#top'
     get 'search' => 'posts#search'
+    get 'users/user_search' => 'users#user_search'
     resources :posts do
 
       resource :goods, only: [:create, :destroy]

@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-4 text-center">
         <tr><%= attachment_image_tag current_user, :profile_image, size: "150x150", fallback: "no_image.jpg", class: "mt-3 rounded-circle" %></tr><br>
-        <div class="user-name mt-2">
+        <div class="user-name mb-2">
           <tr><%= @user.name %></tr>
         </div>
       </div>
@@ -39,11 +39,12 @@
       </div>
     </div>
       <tr>
-        <th><%= @user.introduction %></th><br>
+        <div class="my-introduction mb-3">
+          <th><%= @user.introduction %></th><br>
+        </div>
       </tr>
       <tr>
-<!--<i class="fas fa-birthday-cake"></i>-->
-        <th>生年月日 :</th>
+        <div class="birthday-icon fas fa-birthday-cake"></div>
         <th><%= @user.birth_date %></th>
       </tr>
     </div>
