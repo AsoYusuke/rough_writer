@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
-  has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
-  has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
+  has_many :followings, through: :follower, source: :followed # 自分がフォローしている人
+  has_many :followers, through: :followed, source: :follower # 自分をフォローしている人
 
   has_many :posts, dependent: :destroy
   attachment :profile_image, destroy: false
@@ -44,7 +44,7 @@ class User < ApplicationRecord
 
   # フォローしていればtrueを返す
   def following?(user)
-    following_user.include?(user)
+    followings.include?(user)
   end
 
   #フォロー時の通知
