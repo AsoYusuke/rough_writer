@@ -20,7 +20,7 @@
           </div>
         <!--もしログインしているユーザーなら編集ボタンを表示-->
           <% if @user.id == current_user.id %>
-            <%= link_to '',edit_user_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user}" %>
+            <%= link_to '', edit_user_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user}" %>
           <% end %>
           <% if @user != current_user %>
             <% if user_signed_in? %>
@@ -40,9 +40,9 @@
     </div>
       <tr>
         <div class="my-introduction mb-3">
-          <th><%= @user.introduction %></th><br>
+          <th><%= @user.introduction %></th>
         </div>
-      </tr>
+      </tr><br>
       <tr>
         <div class="birthday-icon fas fa-birthday-cake"></div>
         <th><%= @user.birth_date %></th>

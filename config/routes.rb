@@ -36,6 +36,8 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
       post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+      get 'followings' => 'users#followings', as: 'followings'
+      get 'followers' => 'users#followers', as: 'followers'
     end
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]
