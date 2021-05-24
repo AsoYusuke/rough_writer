@@ -33,6 +33,10 @@ class User::UsersController < ApplicationController
     @users = @user.followers.all
   end
 
+  def goods
+    @good_posts = current_user.good_posts
+  end
+
   private
 
   def user_params

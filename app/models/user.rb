@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many :goods, dependent: :destroy
+  has_many :good_posts, through: :goods, source: :post
   has_many :bads, dependent: :destroy
 
   has_many :user_rooms
