@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'search' => 'posts#search'
     get 'users/user_search' => 'users#user_search'
+    resources :inquiries, only: [:new, :create]
     resources :posts do
 
       resource :goods, only: [:create, :destroy]
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     resources :users, only: [:show, :update, :edit] do
+      get 'goods' => 'users#goods', as: 'goods'
       resource :relationships, only: [:create, :destroy]
       post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
       post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
