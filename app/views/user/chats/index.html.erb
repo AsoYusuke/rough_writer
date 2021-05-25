@@ -1,4 +1,5 @@
 <% @anotherUserRooms.each do |e| %>
   <%= Chat.find_by(id: e.room.chat_ids.last).message %>
   <%= User.find_by(id: e.user_id).name %>
+  <%= User.find_by(id: e.user_id).profile_image %>
 <% end %>
