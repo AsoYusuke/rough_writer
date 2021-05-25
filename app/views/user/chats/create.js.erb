@@ -1,2 +1,14 @@
-$('.message').append("<p style='text-align: left;'><%= @chat.message %></p>");
+$('table').append(`<tr class="row justify-content-center message">
+            <td class="col-2">
+              <%= link_to attachment_image_tag(@chat.user, :profile_image, fallback: "no_image.jpg", size:'80x80', class:"profile-image align-top rounded-circle"), user_path(@chat.user) %>
+            </td>
+            <!-- メッセージを右側に表示する -->
+            <td class="col-10">
+              <%= @chat.user.name %> <br>
+              <!-- 自分用の吹き出しCSSクラスを適用する -->
+              <div class="says">
+                <p style='text-align: left;'><%= @chat.message %></p>
+              </div>
+            </td>
+          </tr>`);
 $('input[type=text]').val("")

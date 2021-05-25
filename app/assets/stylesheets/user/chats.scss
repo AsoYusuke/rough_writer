@@ -1,3 +1,49 @@
-// Place all the styles related to the user::chats controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // 自分のメッセージの吹き出し
+
+.says {
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .2);
+  background-color: palegreen;
+  float: left;
+  position: relative;
+  width: 300px;
+  padding: 16px;
+  background: palegreen;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid palegreen;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+// 自分以外のメッセージの吹き出し
+.other-user-says {
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .2);
+  float: right;
+  position: relative;
+  width: 300px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.other-user-says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #ffffff;
+  -webkit-transform: rotate(145deg);
+  transform: rotate(145deg);
+}
