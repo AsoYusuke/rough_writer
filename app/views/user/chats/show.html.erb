@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-md-10 offset-1">
       <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
+      <table>
         <% @chats.each do |chat| %>
           <% if chat.user_id == current_user.id %>
-          <tr class="row justify-content-center">
+          <tr class="row justify-content-center message">
             <td class="col-2">
               <%= link_to attachment_image_tag(chat.user, :profile_image, fallback: "no_image.jpg", size:'80x80', class:"profile-image align-top rounded-circle"), user_path(chat.user) %>
             </td>
@@ -19,7 +20,7 @@
           </tr>
 
         <% else %>
-          <tr class="row justify-content-center">
+          <tr class="row justify-content-center message">
             <!-- メッセージを左側に表示する -->
             <td class="col-10">
               <div class="col-11 float-right">
@@ -36,6 +37,7 @@
           </tr>
         <% end %>
       <% end %>
+      </table>
       <span>
         <%= form_with model: @chat do |f| %>
           <%= f.text_field :message %>

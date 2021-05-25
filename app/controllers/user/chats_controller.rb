@@ -1,7 +1,7 @@
 class User::ChatsController < ApplicationController
 
   def index
-    
+
     # ログインしているユーザーのDMをするのに必要なroomの一覧
     @currentUserRooms = current_user.user_rooms
     myRoomIds = []
@@ -44,6 +44,7 @@ class User::ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save
+    @chat.create_notification_chat!(current_user, @chat.id)
   end
 
   private
