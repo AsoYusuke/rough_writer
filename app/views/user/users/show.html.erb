@@ -11,13 +11,13 @@
       <div class="col-7">
         <div class="row">
           <div class="col-5 offset-2 mt-5 text-center">
-            <%= link_to(user_followers_path(@user.id), class:"text-dark") do %>
+            <%= link_to(user_followings_path(@user.id), class:"text-dark") do %>
               <th><%= @user.follower.count %></th><br>
               <th>フォロー</th>
             <% end %>
           </div>
           <div class="col-5 mt-5 mb-3 text-center">
-            <%= link_to(user_followings_path(@user.id), class:"text-dark") do %>
+            <%= link_to(user_followers_path(@user.id), class:"text-dark") do %>
               <th><%= @user.followed.count  %></th><br>
               <th>フォロワー </th>
             <% end %>
