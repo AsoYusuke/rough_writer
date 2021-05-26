@@ -1,14 +1,25 @@
-<div class="contact_form text-center">
-  <%= form_with model: @inquiry, local:true do |f| %>
-  <%#= render 'layouts/error_messages', model: f.object %>
-    <h3>お名前</h3>
-    <%= f.text_field :name %>
-    <h3>メールアドレス</h3>
-    <%= f.email_field :email %>
-    <h3>お問い合わせ内容</h3>
-    <%= f.text_area :message %>
-  <div>
-    <p><%= f.submit "送信" %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="box ard w-100 mx-auto mt-4 mb-4 shadow-lg">
+        <div class="card-body">
+          <div class="contact_form text-center">
+            <%= form_with model: @inquiry, local:true do |f| %>
+            <%#= render 'layouts/error_messages', model: f.object %>
+              <h3 class="my-4">お問い合わせフォーム</h3>
+              <h3 class="my-4">お名前</h3>
+              <%= f.text_field :name %>
+              <h3 class="my-4">メールアドレス</h3>
+              <%= f.email_field :email %>
+              <h3 class="my-4">お問い合わせ内容</h3>
+              <%= f.text_area :message %>
+            <div>
+              <p class="my-4"><%= f.submit "送信" %></p>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <% end %>
 </div>
