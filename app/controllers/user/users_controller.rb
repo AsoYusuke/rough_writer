@@ -21,6 +21,7 @@ class User::UsersController < ApplicationController
 
   def search
     @users = User.all
+    @user = User.find(params[:id])
   end
 
   def followings

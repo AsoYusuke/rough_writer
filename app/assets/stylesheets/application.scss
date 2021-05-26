@@ -26,19 +26,19 @@
 }
 
 // ヘッダー
-.navbar {
-  height: 90px;
+.header_nav {
+  height: 100px;
   background-color: rgba(32, 178, 170, 0.8);
 }
 
 .header_logo {
-  width: 200px;
   height: auto;
+  margin-right: 150px;
 }
 
 /* 検索ボックス */
 dl.searchbox{
-  margin-left: 20px;
+  margin-left: 1150px;
   width: 200px;
   position:relative;
   background-color:#fff;
@@ -64,7 +64,7 @@ dl.searchbox dd{
   background:#5fad35;
   width:100%;
   height:27px;
-  line-height:36px;
+  line-height:35px;
   border:none;
   border-radius: 0 6px 6px 0;
   color:#FFF;
@@ -74,7 +74,6 @@ dl.searchbox dd{
   background:#228B22;
 }
 
-// top
 .slick-slide img {
   margin: 0 auto;
 }
@@ -85,6 +84,7 @@ dl.searchbox dd{
 
 .header-items {
   margin-top: 13px;
+  padding-left: 1150px;
 }
 
 // post/new
@@ -125,8 +125,7 @@ footer {
 }
 
 .footer-text {
-  line-height: 70px;
+  line-height: 80px;
   color: #666;
   text-align: center;
 }
-

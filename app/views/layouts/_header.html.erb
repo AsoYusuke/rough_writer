@@ -1,22 +1,24 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-light ">
-    <a class="nav-link", href="/"><span>RoughWriter</span></a>
+  <nav class="navbar navbar-dark header_nav">
+    <div class="nav-link text-light mr-5 mt-3">
+      ようこそ <%= current_user.name %> さん
+    </div>
+    <a class="nav-link", href="/"><img src="/assets/icon_image.png" height="80"  width="80", class="header_logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav  mr-auto">
         <% if user_signed_in? %>
         <!--customerのヘッダー-->
-          <div class="nav-link text-light mr-5 mt-3">
-            ようこそ <%= current_user.name %> さん
-          </div>
-          <li class="header-items"><%= link_to ' 投稿する', new_post_path, class: "nav-link text-light fas fa-calendar-plus" %></li>
-          <li class="header-items"><%= link_to ' 投稿一覧', posts_path, class: "nav-link text-light fas fa-file-alt" %></li>
-          <li class="header-items"><%= link_to ' チャット', chats_path(current_user), class: "nav-link text-light fas fa-comment-dots" %></li>
-          <li class="header-items"><%= link_to ' マイページ', user_path(current_user), class: "nav-link text-light fas fa-user" %></li>
-          <li class="header-items"><%= link_to ' 通知', notifications_path, class: "nav-link text-light fas fa-bell" %></li>
-          <li class="header-items"><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-light fas fa-sign-out-alt" %></li>
+          <li class="header-items"><%= link_to ' 投稿する', new_post_path, class: "nav-link text-muted fas fa-calendar-plus" %></li>
+          <li class="header-items"><%= link_to ' 投稿一覧', posts_path, class: "nav-link text-muted fas fa-file-alt" %></li>
+          <li class="header-items"><%= link_to ' チャット', chats_path(current_user), class: "nav-link text-muted fas fa-comment-dots" %></li>
+          <li class="header-items"><%= link_to ' マイページ', user_path(current_user), class: "nav-link text-muted fas fa-user" %></li>
+          <li class="header-items"><%= link_to ' 通知', notifications_path, class: "nav-link text-muted fas fa-bell" %></li>
+          <li class="header-items"><%= link_to ' お問い合わせ', new_inquiry_path, class: "nav-link text-muted fas fa-paper-plane" %></li>
+          <li class="header-items"><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-muted fas fa-sign-out-alt" %></li>
         <% elsif admin_signed_in? %>
         <!--adminのヘッダー-->
           <li class="header-items"><%= link_to ' 投稿一覧', admin_posts_path,class: "nav-link text-light fas fa-users" %></li>
@@ -29,14 +31,21 @@
           <li class="header-items"><%= link_to ' 新規登録', new_user_registration_path, class: "nav-link text-light fas fa-user-plus" %></li>
           <li class="header-items"><%= link_to ' ログイン', new_user_session_path, class: "nav-link text-light fas fa-sign-in-alt" %></li>
         <% end %>
+        <dl class="searchbox mt-3">
+          <!--会員側の商品検索-->
+          <% if user_signed_in? %>
+            <%= search_form_for @search, url: users_user_search_path do |f| %>
+              <dt><%= f.text_field :name_cont , placeholder: 'ユーザー名' %></dt>
+              <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+            <% end %>
+          <% else admin_signed_in? %>
+            <%= search_form_for @search, url: users_user_search_path do |f| %>
+              <dt><%= f.text_field :name_cont , placeholder: 'ユーザー名' %></dt>
+              <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+            <% end %>
+          <% end %>
+        </dl>
       </ul>
     </div>
-    <dl class="searchbox mt-3">
-      <!--会員側の商品検索-->
-      <%= search_form_for @search, url: users_user_search_path do |f| %>
-        <dt><%= f.text_field :name_cont ,placeholder: '検索するテキストを入力...' %></dt>
-        <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-      <% end %>
-    </dl>
   </nav>
 </header>
