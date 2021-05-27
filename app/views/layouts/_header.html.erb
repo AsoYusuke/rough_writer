@@ -1,8 +1,15 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-dark header_nav">
-    <div class="nav-link text-light mr-5 mt-3">
-      ようこそ <%= current_user.name %> さん
-    </div>
+  <nav class="navbar navbar-light header_nav">
+    <% if user_signed_in? %>
+      <div class="nav-link text-light mr-5 mt-3">
+      </div>
+    <% elsif admin_signed_in? %>
+      <div class="nav-link text-light mr-5 mt-3">
+      </div>
+    <% else %>
+      <div class="nav-link text-light mr-5 mt-3">
+      </div>
+    <% end %>
     <a class="nav-link", href="/"><img src="/assets/icon_image.png" height="80"  width="80", class="header_logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +19,8 @@
       <ul class="navbar-nav  mr-auto">
         <% if user_signed_in? %>
         <!--customerのヘッダー-->
-          <li class="header-items"><%= link_to ' 投稿する', new_post_path, class: "nav-link text-muted fas fa-calendar-plus" %></li>
+          <li class="header-items header-user_name text-muted"><%= current_user.name %>さん</li>
+          <li class="header-items"><%= link_to ' 投稿する', new_post_path, class: "nav-link text-muted fas fa-edit" %></li>
           <li class="header-items"><%= link_to ' 投稿一覧', posts_path, class: "nav-link text-muted fas fa-file-alt" %></li>
           <li class="header-items"><%= link_to ' チャット', chats_path(current_user), class: "nav-link text-muted fas fa-comment-dots" %></li>
           <li class="header-items"><%= link_to ' マイページ', user_path(current_user), class: "nav-link text-muted fas fa-user" %></li>

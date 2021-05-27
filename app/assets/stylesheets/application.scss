@@ -25,6 +25,11 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
+
 // ヘッダー
 .header_nav {
   height: 100px;
@@ -33,7 +38,6 @@
 
 .header_logo {
   height: auto;
-  margin-right: 150px;
 }
 
 /* 検索ボックス */
@@ -85,6 +89,16 @@ dl.searchbox dd{
 .header-items {
   margin-top: 13px;
   padding-left: 1150px;
+}
+
+.navbar-toggler {
+  margin-right: 40px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'
+  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(51, 51, 51, 1)'
+  stroke-width='3' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 // post/new

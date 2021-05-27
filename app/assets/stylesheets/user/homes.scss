@@ -1,3 +1,22 @@
-// Place all the styles related to the user::homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* 高さを指定することにより画像が表示される */
+#box{
+  height: 600px;
+}
+.image1 {
+  background-image: image-url(/assets/pf_image1.jpeg);
+}
+.image2 {
+  background-image: image-url(/assets/pf_image2.jpeg);
+}
+.image3 {
+  background-image: image-url(/assets/pf_image3.webp);
+}
+.image4 {
+  background-image: image-url(/assets/pf_image4.webp);
+}
+.image5 {
+  background-image: image-url(/assets/pf_image7.jpg);
+}
+.image6 {
+  background-image: image-url(/assets/pf_image6.jpeg);
+}

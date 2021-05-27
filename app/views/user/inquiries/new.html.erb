@@ -6,12 +6,12 @@
           <div class="contact_form text-center">
             <%= form_with model: @inquiry, local:true do |f| %>
             <%#= render 'layouts/error_messages', model: f.object %>
-              <h3 class="my-4">お問い合わせフォーム</h3>
-              <h3 class="my-4">お名前</h3>
+              <h4 class="my-4">お問い合わせフォーム</h4>
+              <h5 class="my-4">お名前</h5>
               <%= f.text_field :name %>
-              <h3 class="my-4">メールアドレス</h3>
+              <h5 class="my-4">メールアドレス</h5>
               <%= f.email_field :email %>
-              <h3 class="my-4">お問い合わせ内容</h3>
+              <h5 class="my-4">お問い合わせ内容</h5>
               <%= f.text_area :message %>
             <div>
               <p class="my-4"><%= f.submit "送信" %></p>
