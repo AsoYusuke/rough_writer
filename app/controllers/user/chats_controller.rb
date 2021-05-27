@@ -1,4 +1,21 @@
 class User::ChatsController < ApplicationController
+
+  def index
+
+    # ログインしているユーザーのDMをするのに必要なroomの一覧
+    @currentUserRooms = current_user.user_rooms
+    myRoomIds = []
+
+    # roomの一覧からroom_idのみを抽出
+    @currentUserRooms.each do |user_room|
+      myRoomIds << user_room.room_id
+    end
+
+    # 抽出したroom_idをもとに自分以外のuser_idを調べるために検索している
+    @anotherUserRooms = UserRoom.where(room_id: myRoomIds).where('user_id != ?', current_user.id)
+  end
+
+
   def show
     @user = User.find(params[:id])
     #ログインしているユーザーのidが入ったroom_idのみを配列で取得（該当するroom_idが複数でも全て取得）
@@ -27,6 +44,7 @@ class User::ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save
+    @chat.create_notification_chat!(current_user, @chat.id)
   end
 
   private

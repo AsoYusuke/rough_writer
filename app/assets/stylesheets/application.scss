@@ -25,13 +25,121 @@
   box-sizing: border-box;
 }
 
-// ヘッダー
-.header-items {
-  margin-top: 15px;
+li {
+  list-style: none;
 }
 
-// userのshow
+
+// ヘッダー
+.header_nav {
+  height: 100px;
+  background-color: rgba(32, 178, 170, 0.8);
+}
+
+.header_logo {
+  height: auto;
+}
+
+/* 検索ボックス */
+dl.searchbox{
+  margin-left: 1150px;
+  width: 200px;
+  position:relative;
+  background-color:#fff;
+  border:1px solid #aaa;
+  border-radius:6px;
+}
+
+dl.searchbox dt input{
+  width:70%;
+  height:28px;
+  line-height:30px;
+  background:none;
+  border:none;
+}
+dl.searchbox dd{
+  position:absolute;
+  top:1px;
+  right:1px;
+  width:30%;
+}
+.search-btn{
+  display:block;
+  background:#5fad35;
+  width:100%;
+  height:27px;
+  line-height:35px;
+  border:none;
+  border-radius: 0 6px 6px 0;
+  color:#FFF;
+}
+
+.search-btn:hover {
+  background:#228B22;
+}
+
+.slick-slide img {
+  margin: 0 auto;
+}
+
+.slick-slide {
+  width: auto !important;
+}
+
+.header-items {
+  margin-top: 13px;
+  padding-left: 1150px;
+}
+
+.navbar-toggler {
+  margin-right: 40px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'
+  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(51, 51, 51, 1)'
+  stroke-width='3' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+// post/new
+.new-post {
+  color : #666;
+}
+
+// post/search
+.index_search{
+  margin-left: 400px;
+  margin-bottom: 50px;
+}
+
+.search-text {
+  margin-left: 20px;
+  color: #666;
+}
+
+// user/show
 .text-count {
   margin-left : 200px;
   color: #666;
+}
+
+// user/edit
+.user-edit {
+  color : #666;
+}
+
+// フッター
+footer {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  background-color: rgba(248, 248, 255, 0.5);
+  position: relative;
+  bottom: 0;
+}
+
+.footer-text {
+  line-height: 80px;
+  color: #666;
+  text-align: center;
 }

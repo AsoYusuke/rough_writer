@@ -1,4 +1,6 @@
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
@@ -15,6 +17,25 @@ class User::UsersController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def search
+    @users = User.all
+    @user = User.find(params[:id])
+  end
+
+  def followings
+    @user = User.find(params[:user_id])
+    @users = @user.followings.all
+  end
+
+  def followers
+    @user = User.find(params[:user_id])
+    @users = @user.followers.all
+  end
+
+  def goods
+    @good_posts = current_user.good_posts
   end
 
   private

@@ -1,4 +1,4 @@
 <%= form_with(model: [post, comment], url: post_comments_path(@post) ) do |f| %>
-  <%= f.text_area :comments_body, class: "input-mysize" %>
-  <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
+  <%= f.text_area :comments_body, class: "input-mysize", placeholder: 'コメントをここに記入' %>
+  <%= f.submit "送信", class: "btn btn-outline-dark comment-submit mb-5" %>
 <% end %>
