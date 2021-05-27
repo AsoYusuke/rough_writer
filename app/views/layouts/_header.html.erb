@@ -1,7 +1,15 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-dark header_nav">
-    <div class="nav-link text-light mr-5 mt-3">
-    </div>
+  <nav class="navbar navbar-light header_nav">
+    <% if user_signed_in? %>
+      <div class="nav-link text-light mr-5 mt-3">
+      </div>
+    <% elsif admin_signed_in? %>
+      <div class="nav-link text-light mr-5 mt-3">
+      </div>
+    <% else %>
+      <div class="nav-link text-light mr-5 mt-3">
+      </div>
+    <% end %>
     <a class="nav-link", href="/"><img src="/assets/icon_image.png" height="80"  width="80", class="header_logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
