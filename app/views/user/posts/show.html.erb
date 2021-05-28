@@ -12,24 +12,25 @@
             <% end %>
           </div>
           <div class="col-md-9">
-            <p class="card-text mt-3">
-              <%= link_to(post_path(@post.id), class:"text-dark") do %>
-                ジャンル：<%= @post.genre.genre_name %>
-              <% end %>
+            <p class="card-genre mt-3 text-center text-secondary">
+              ジャンル：<%= @post.genre.genre_name %>
             </p>
-            <p class="card-title">
+            <p class="card-title text-center">
             <%= link_to(post_path(@post.id), class:"text-dark") do %>
-              タイトル : <%= @post.title %>
+              <strong><%= @post.title %></strong>
             <% end %>
             </p>
             <p class="card-body">
               <%= @post.body %><br>
             </p>
             <%= attachment_image_tag @post, :image, size: '600x450', class:"attachment product product_image fallback"%><br>
-            <% if @post.user == current_user %>
-              <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
-              <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
-            <% end %>
+            <p class="card-edit text-secondary text-right mt-2">
+              <% if @post.user == current_user %>
+                <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+                <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
+              <% end %>
+              <%= @post.created_at.to_s(:datetime_jp) %>
+            </p>
           </div>
         </table>
       </div>
