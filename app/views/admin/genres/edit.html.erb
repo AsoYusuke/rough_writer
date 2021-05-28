@@ -1,15 +1,19 @@
 <!--ジャンル名の変更-->
 <div class="container">
   <div class="row">
-    <div class="col-sm-7">
-      <h2>ジャンル編集</h2>
-      <!--のちにエラーメッセージ作る-->
-      <!--%= render 'layouts/error_messages', validation: @genre %>-->
-      <%= form_with model: [:admin,@genre], local:true do |f| %>
-        <%= f.label :name,"ジャンル名" %>
-        <%= f.text_field :name %>
-        <%= f.submit '変更を保存', class: "btn btn-success" %>
-      <% end %>
+    <div class="col-md-6 offset-md-3">
+      <div class="card w-100 mx-auto mt-4 mb-4 shadow-lg">
+        <div class="card-body">
+          <h3 class="genre-edit text-secondary text-center">ジャンル編集</h3>
+          <!--のちにエラーメッセージ作る-->
+          <!--%= render 'layouts/error_messages', validation: @genre %>-->
+          <%= form_with model: [:admin,@genre], local:true do |f| %>
+            <%= f.label :name,"ジャンル名" %>
+            <%= f.text_field :name %>
+            <%= f.submit '変更を保存', class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -3,9 +3,8 @@
     <div class="col-md-6 offset-md-3">
       <div class="card w-100 mx-auto mt-4 mb-4 shadow-lg">
         <div class="card-body">
-          <h3 class="user-edit">登録情報編集</h3>
+          <h3 class="user-edit text-secondary text-center">登録情報編集</h3>
           <%= form_with model: @user, local: :true do |f| %>
-
             <div class="field text-center">
               <%= attachment_image_tag(current_user, :profile_image, :id => "preview", :size =>'200x200', :style =>"border-radius: 80%", fallback: "no_image.jpg") %></br>
               <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>

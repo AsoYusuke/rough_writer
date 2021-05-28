@@ -20,7 +20,7 @@
         <% if user_signed_in? %>
         <!--customerのヘッダー-->
           <li class="header-items header-user_name text-muted"><%= current_user.name %>さん</li>
-          <li class="header-items"><%= link_to ' 投稿する', new_post_path, class: "nav-link text-muted fas fa-edit" %></li>
+          <li class="header-items"><%= link_to ' 新規投稿', new_post_path, class: "nav-link text-muted fas fa-edit" %></li>
           <li class="header-items"><%= link_to ' 投稿一覧', posts_path, class: "nav-link text-muted fas fa-file-alt" %></li>
           <li class="header-items"><%= link_to ' チャット', chats_path(current_user), class: "nav-link text-muted fas fa-comment-dots" %></li>
           <li class="header-items"><%= link_to ' マイページ', user_path(current_user), class: "nav-link text-muted fas fa-user" %></li>
