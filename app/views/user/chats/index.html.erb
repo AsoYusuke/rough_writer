@@ -9,10 +9,10 @@
         </div>
         <div class="col-4 mt-4">
           <%= User.find_by(id: user_room.user_id).name %><br>
-          <%= Chat.find_by(id: user_room.room.chat_ids.last).message %>
+          <%= user_room.room.chats.last.message %>
         </div>
         <div class="col-4 my-4 text-secondary">
-          <%= Chat.find_by(id: user_room.room.chat_ids.last).created_at.to_s(:datetime_jp) %>
+          <%= user_room.room.chats.last.created_at.to_s(:datetime_jp) %>
         </div>
         <div class="col-2 mt-4">
           <%= link_to '', chat_path(user_room.user), class: "btn btn-outline-secondary  btn-block far fa-comment-dots" %>

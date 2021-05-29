@@ -9,8 +9,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true, length: {maximum: 200}
-  validates :genre_name, presence: true
-  
+  validates :genre_id, presence: true
+
   # def gooded_by?(user)
   #   goods.where(user_id: user.id).exists?
   # end
