@@ -6,7 +6,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).reverse_order
+    @posts = Post.page(params[:page]).per(15)
   end
 
   def create

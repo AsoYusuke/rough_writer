@@ -2,12 +2,12 @@
       <table class='table table-hover table-inverse'>
         <tbody>
           <div class="index_search">
-            <%= render 'select_form', post: @post %>
+            <%= render 'select_form', post: @post %><br>
+            <%= paginate @posts %>
           </div>
           <div id="post_index_all">
             <%= render 'index_all', posts: @posts %>
           </div>
         </tbody>
       </table>
-      <!--%= paginate @posts %>-->
 </div>

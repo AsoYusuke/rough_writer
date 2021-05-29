@@ -9,7 +9,7 @@
         </div>
         <div class="col-4 mt-4">
           <%= User.find_by(id: user_room.user_id).name %><br>
-          <%= user_room.room.chats.last.message %>
+          <div class="text-secondary"><%= user_room.room.chats.last.message %></div>
         </div>
         <div class="col-4 my-4 text-secondary">
           <%= user_room.room.chats.last.created_at.to_s(:datetime_jp) %>
