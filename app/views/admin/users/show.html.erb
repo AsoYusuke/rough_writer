@@ -6,7 +6,7 @@
           <h3 class="user-edit text-secondary text-center">ユーザー情報</h3>
           <%= form_with model: @user, local: :true do |f| %>
             <div class="user-profile_image text-center">
-              <%= attachment_image_tag(@user, :profile_image, :id => "preview", :size =>'200x200', :style =>"border-radius: 80%", fallback: "no_image.jpg") %>
+              <%= attachment_image_tag(user, :profile_image, :id => "preview", :size =>'200x200', :style =>"border-radius: 80%", fallback: "no_image.jpg") %>
             </div>
 
             <div class="user-name text-center my-4">

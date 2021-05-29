@@ -29,7 +29,7 @@
                 </p>
                 <%= attachment_image_tag @post, :image, size: '400x400', class:"attachment product product_image fallback"%><br>
                 <p class="card-edit text-secondary text-right mt-2">
-                  <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
+                  <%= link_to '削除', admin_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
                   <%= @post.created_at.to_s(:datetime_jp) %>
                 </p>
               </div>

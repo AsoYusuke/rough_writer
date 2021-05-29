@@ -8,7 +8,7 @@ class User::UsersController < ApplicationController
 
   def hide
     @user = User.find(params[:id])
-    @user.update(user_status: true)
+    @user.update(user_status: false)
     #ログアウトさせる
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
