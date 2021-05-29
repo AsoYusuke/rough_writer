@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9 offset-3">
-      <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
+      <h3 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>" class="text-secondary my-5"><%= @user.name %> さんとのチャット</h3>
       <table class="chat_table mb-5">
         <% @chats.each do |chat| %>
           <% if chat.user_id == current_user.id %>
@@ -15,10 +15,12 @@
               <!-- 自分用の吹き出しCSSクラスを適用する -->
               <div class="says">
                 <p style='text-align: left;'><%= chat.message %></p>
+                <div class="times text-right text-secondary">
+                  <%= chat.created_at.to_s(:datetime_jp) %>
+                </div>
               </div>
             </td>
           </tr>
-
         <% else %>
           <tr class="row justify-content-center message">
             <!-- メッセージを左側に表示する -->
@@ -29,6 +31,9 @@
               <!-- 自分以外用の吹き出しCSSクラスを適用する -->
               <div class="other-user-says">
                 <p style='text-align: left;'><%= chat.message %></p>
+                <div class="times text-right text-secondary">
+                  <%= chat.created_at.to_s(:datetime_jp) %>
+                </div>
               </div>
             </td>
             <td class="col-2">

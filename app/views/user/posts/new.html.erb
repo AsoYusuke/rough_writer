@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
+      <%= render 'layouts/error_messages', validation: @post %>
       <div class="card w-100 mx-auto mt-4 shadow-lg">
         <div class="card-body">
-          <h3 class="new_post">新規投稿</h3>
+          <h3 class="new_post text-center text-secondary">新規投稿</h3>
           <!--部分テンプレ準備する-->
           <%= form_with model: @post, local:true do |f| %>
             <div class="form_input mt-3">

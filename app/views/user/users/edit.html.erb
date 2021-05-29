@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
+      <%= render 'layouts/error_messages', validation: @user %>
       <div class="card w-100 mx-auto mt-4 mb-4 shadow-lg">
         <div class="card-body">
           <h3 class="user-edit text-secondary text-center">登録情報編集</h3>
@@ -25,7 +26,7 @@
               <!--選択バー作成-->
               <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
             </div>
-            
+
             <% if user_signed_in? && @user.id == current_user.id %>
               <%= link_to "退会", user_users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
             <% end %>

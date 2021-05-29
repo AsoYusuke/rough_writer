@@ -9,7 +9,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true, length: {maximum: 200}
-
+  validates :genre_name, presence: true
+  
   # def gooded_by?(user)
   #   goods.where(user_id: user.id).exists?
   # end
@@ -62,7 +63,7 @@ class Post < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-  
+
   def self.sort(selection)
     case selection
     when 'new'

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   #管理側
   namespace :admin do
-    resources :posts
+    resources :posts, only: [:index, :show]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
   end

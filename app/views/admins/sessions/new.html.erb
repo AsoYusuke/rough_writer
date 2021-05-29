@@ -3,7 +3,7 @@
     <div class="col-md-6 offset-md-3">
       <div class="card w-100 mx-auto mt-4 mb-4 shadow-lg">
         <div class="card-body">
-          <h2>Log in</h2>
+          <h2 class="text-center mt-5">管理者Log in</h2>
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field text-center my-5">
@@ -24,7 +24,7 @@
             <% end %>
 
             <div class="actions text-center my-5">
-              <%= f.submit "Log in" %>
+              <%= f.submit "Log in", class: "btn btn-outline-secondary", style: "background-color: #00CC00; color: #FFFFFF" %>
             </div>
           <% end %>
 

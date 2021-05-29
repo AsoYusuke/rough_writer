@@ -18,7 +18,7 @@
           </div>
           <div class="col-5 mt-5 mb-3 text-center">
             <%= link_to(user_followers_path(@user.id), class:"text-dark") do %>
-              <th><%= @user.followed.count  %></th><br>
+              <th><%= @user.followed.count %></th><br>
               <th>フォロワー</th>
             <% end %>
           </div>
@@ -45,18 +45,15 @@
             </div>
             <% end %>
           <% end %>
+        </div>
       </div>
-    </div>
-      <tr>
-        <div class="my-introduction mb-3">
-          <th><%= @user.introduction %></th></br>
-        </div>
-      </tr>
-      <tr>
-        <div class="birthday-icon fas fa-birthday-cake text-secondary">
-          <th><%= @user.birth_date %></th>
-        </div>
-      </tr>
+      <div class="my-introduction mb-3">
+        <%= @user.introduction %>
+      </div>
+      </br>
+      <div class="birthday-icon fas fa-birthday-cake text-secondary">
+        <%= @user.birth_date %>
+      </div>
     </div>
   </div>
 </div>

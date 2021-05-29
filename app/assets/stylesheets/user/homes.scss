@@ -28,3 +28,130 @@
 }
 
 
+.image1 {
+  position: relative;
+  }
+
+.image1 p {
+  font-family: Tahoma;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: white;/*文字を白に*/
+  background: rgba(220, 220, 220, 0.5);/*背景色*/
+  font-size: 80px;
+  line-height: 1;/*行高は1に*/
+  padding: 15px 30px;/*文字周りの余白
+  /*文字の装飾は省略*/
+  }
+
+
+.image2 {
+  position: relative;
+  }
+
+.image2 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: white;/*文字を白に*/
+  background: rgba(220, 220, 220, 0.5);/*背景色*/
+  font-size: 80px;
+  line-height: 1;/*行高は1に*/
+  padding: 10px 20px;/*文字周りの余白
+  /*文字の装飾は省略*/
+  }
+
+.image3 {
+  position: relative;
+}
+
+.image3 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: white;/*文字を白に*/
+  background: rgba(220, 220, 220, 0.5);/*背景色*/
+  font-size: 80px;
+  line-height: 1;/*行高は1に*/
+  padding: 10px 20px;/*文字周りの余白
+  /*文字の装飾は省略*/
+  }
+
+.image4 {
+  position: relative;
+}
+
+.image4 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: white;/*文字を白に*/
+  background: rgba(220, 220, 220, 0.5);/*背景色*/
+  font-size: 80px;
+  line-height: 1;/*行高は1に*/
+  padding: 10px 20px;/*文字周りの余白
+  /*文字の装飾は省略*/
+}
+
+  .image5 {
+  position: relative;
+  }
+
+.image5 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: white;/*文字を白に*/
+  background: rgba(220, 220, 220, 0.5);/*背景色*/
+  font-size: 80px;
+  line-height: 1;/*行高は1に*/
+  padding: 10px 20px;/*文字周りの余白
+  /*文字の装飾は省略*/
+}
+
+.image6 {
+  position: relative;
+}
+
+.image6 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: white;/*文字を白に*/
+  background: rgba(220, 220, 220, 0.5);/*背景色*/
+  font-size: 80px;
+  line-height: 1;/*行高は1に*/
+  padding: 10px 20px;/*文字周りの余白
+  /*文字の装飾は省略*/
+}
+
+.top-text{
+  text-align: center;
+  font-family: Century Gothic;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+.card-body2{
+  background-color:#EEEEEE;
+}
