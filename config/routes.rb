@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     resources :users, only: [:show, :update, :edit] do
+      put "/users/:id/hide" => "users#hide", as: 'users_hide'
       get 'goods' => 'users#goods', as: 'goods'
       resource :relationships, only: [:create, :destroy]
       post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする

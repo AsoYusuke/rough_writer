@@ -25,6 +25,10 @@
               <!--選択バー作成-->
               <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
             </div>
+            
+            <% if user_signed_in? && @user.id == current_user.id %>
+              <%= link_to "退会", user_users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+            <% end %>
 
             <%= f.submit "更新", class: 'btn btn-success' %>
 

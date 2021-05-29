@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
-      <h2>会員一覧</h2>
+    <div class="col-md-8 offset-2">
+      <h3 class="text-secondary mt-3 text-center">会員一覧</h3>
     </div>
-    <div class="col-md-9 mt-4">
+    <div class="col-md-8 offset-2 mt-4">
       <table class="table">
         <thead>
           <tr>
@@ -11,15 +11,25 @@
             <th>プロフィール画像</th>
             <th>氏名</th>
             <th>メールアドレス</th>
+            <th>ユーザーステータス</th>
           </tr>
         </thead>
         <tbody>
           <% @users.each do |user| %>
             <tr>
               <td><%= user.id %></td>
-              <td><%= attachment_image_tag current_user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %></td>
+              <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %></td>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
+              <td>
+                <div class="text-center">
+                  <% if user.user_status == true %>
+                    <span>有効</span>
+                    <% else %>
+                    <span>退会済み</span>
+                  <% end %>
+                </div>
+              </td>
             </tr>
           <% end %>
         </tbody>

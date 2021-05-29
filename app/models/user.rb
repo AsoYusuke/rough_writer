@@ -60,4 +60,8 @@ class User < ApplicationRecord
     end
   end
 
+  def active_for_authentication?
+    super && (self.user_status == true)
+  end
+
 end

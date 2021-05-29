@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card w-100 mx-auto mt-4 mb-4 shadow-lg">
+        <div class="card-body">
+          <h3 class="user-edit text-secondary text-center">ユーザー情報</h3>
+          <%= form_with model: @user, local: :true do |f| %>
+            <div class="user-profile_image text-center">
+              <%= attachment_image_tag(@user, :profile_image, :id => "preview", :size =>'200x200', :style =>"border-radius: 80%", fallback: "no_image.jpg") %>
+            </div>
+
+            <div class="user-name text-center my-4">
+              ユーザー名<br>
+              <%= @user.name %>
+            </div>
+
+            <div class="user-introduction text-center my-4">
+              自己紹介<br>
+              <%= @user.introduction %>
+            </div>
+
+            <div class="birthday text-center my-4">
+              生年月日<br>
+              <%= @user.birth_date %>
+            </div>
+
+            <div class="follow text-center my-4">
+              フォロー数：<%= @user.followed.count %><br>
+              フォロワー数：<%= @user.followers.count %>
+            </div>
+
+            <div class="user_status text-center my-4">
+              <%= form_with model: @user, url: admin_user_path, method: :patch, local:true do |f| %>
+                <%= f.radio_button :user_status, true %>
+                <%= f.label :user_status, "有効" %>
+                <%= f.radio_button :user_status, false %>
+                <%= f.label :user_status, "退会" %><br>
+                <%= f.submit "ステータスを保存", class: "btn btn-success"%>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

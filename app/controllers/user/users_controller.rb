@@ -6,6 +6,15 @@ class User::UsersController < ApplicationController
     @posts = @user.posts
   end
 
+  def hide
+    @user = User.find(params[:id])
+    @user.update(user_status: true)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -41,7 +50,7 @@ class User::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image, :user_status)
   end
 
 
