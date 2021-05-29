@@ -1,5 +1,5 @@
 class User::PostsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show, :create, :show, :edit, :update, :destroy, :search]
 
   def new
     @post = current_user.posts.build
@@ -20,7 +20,6 @@ before_action :authenticate_user!
 
   def show
     @post = Post.find(params[:id])
-    @post.user = current_user
     @comment = Comment.new
     #新着順で表示
     @comments = @post.comments.order(created_at: :desc)

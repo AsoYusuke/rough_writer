@@ -27,7 +27,7 @@
           <li class="header-items"><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-muted fas fa-sign-out-alt" %></li>
         <% else %>
         <!--ログイン前のヘッダー-->
-          <li class="header-items"><%= link_to ' ランキング', class: "nav-link text-light fas fa-grin-stars" %></li>
+          <li class="header-items"><%= link_to ' 投稿一覧', posts_path, class: "nav-link text-muted fas fa-file-alt" %></li>
           <li class="header-items"><%= link_to ' 新規登録', new_user_registration_path, class: "nav-link text-light fas fa-user-plus" %></li>
           <li class="header-items"><%= link_to ' ログイン', new_user_session_path, class: "nav-link text-light fas fa-sign-in-alt" %></li>
         <% end %>
@@ -38,13 +38,16 @@
               <dt><%= f.text_field :name_cont , placeholder: 'ユーザー名' %></dt>
               <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
             <% end %>
+          </dl>
           <% elsif admin_signed_in? %>
+          <dl class="searchbox mt-3">
             <%= search_form_for @search, url: users_user_search_path do |f| %>
               <dt><%= f.text_field :name_cont , placeholder: 'ユーザー名' %></dt>
               <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
             <% end %>
-          <% else %>
           </dl>
+          <% else %>
+
           <% end %>
       </ul>
     </div>
