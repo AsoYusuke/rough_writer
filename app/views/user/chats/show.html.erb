@@ -7,7 +7,7 @@
           <% if chat.user_id == current_user.id %>
           <tr class="row justify-content-center message mb-4">
             <td class="col-2">
-              <%= link_to attachment_image_tag(chat.user, :profile_image, fallback: "no_image.jpg", size:'80x80', class:"profile-image align-top rounded-circle"), user_path(chat.user) %>
+              <%= link_to attachment_image_tag(chat.user, :profile_image, fallback: "no_image.jpg", size:'60x60', class:"profile-image align-top rounded-circle"), user_path(chat.user) %>
             </td>
             <!-- メッセージを右側に表示する -->
             <td class="col-10">
@@ -37,7 +37,7 @@
               </div>
             </td>
             <td class="col-2">
-              <%= link_to attachment_image_tag(chat.user, :profile_image, fallback: "no_image.jpg", size:'80x80', class:"profile-image align-top rounded-circle"), user_path(chat.user) %>
+              <%= link_to attachment_image_tag(chat.user, :profile_image, fallback: "no_image.jpg", size:'60x60', class:"profile-image align-top rounded-circle"), user_path(chat.user) %>
             </td>
           </tr>
         <% end %>
