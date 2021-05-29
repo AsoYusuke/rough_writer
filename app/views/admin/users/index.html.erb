@@ -12,6 +12,7 @@
             <th>氏名</th>
             <th>メールアドレス</th>
             <th>ユーザーステータス</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@
                   <% end %>
                 </div>
               </td>
+              <td><%= link_to '表示', admin_user_path(user), class: "btn btn-outline-secondary btn-block" %></td>
             </tr>
           <% end %>
         </tbody>
