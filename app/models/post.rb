@@ -11,13 +11,6 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: {maximum: 200}
   validates :genre_id, presence: true
 
-  # def gooded_by?(user)
-  #   goods.where(user_id: user.id).exists?
-  # end
-
-  # def baded_by?(user)
-  #   bads.where(user_id: user.id).exists?
-  # end
 
   #good通知
   def create_notification_by(current_user)
@@ -29,15 +22,6 @@ class Post < ApplicationRecord
       notification.save if notification.valid?
   end
 
-  # #bad通知
-  # def create_notification_by(current_user)
-  #     notification = current_user.active_notifications.new(
-  #       post_id: id,
-  #       visited_id: user_id,
-  #       action: "bad"
-  #     )
-  #     notification.save if notification.valid?
-  # end
 
   def create_notification_comment!(current_user, comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
