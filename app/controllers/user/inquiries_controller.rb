@@ -1,7 +1,10 @@
 class User::InquiriesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @inquiry = Inquiry.new
   end
+
 
   def create
     @inquiry = Inquiry.new(inquiry_params)

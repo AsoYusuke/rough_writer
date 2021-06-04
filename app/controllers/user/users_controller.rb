@@ -6,6 +6,7 @@ class User::UsersController < ApplicationController
     @posts = @user.posts
   end
 
+  #会員退会、user_statusの変更
   def hide
     @user = User.find(params[:id])
     @user.update(user_status: false)
@@ -29,11 +30,12 @@ class User::UsersController < ApplicationController
     end
   end
 
+  #検索機能（ransack)
   def search
     @users = User.all
     @user = User.find(params[:id])
   end
-
+  
   def followings
     @user = User.find(params[:user_id])
     @users = @user.followings.all
@@ -43,7 +45,8 @@ class User::UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @users = @user.followers.all
   end
-
+  
+  #いいね一覧
   def goods
     @good_posts = current_user.good_posts
   end
