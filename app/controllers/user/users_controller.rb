@@ -3,7 +3,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   #会員退会、user_statusの変更
@@ -35,7 +35,7 @@ class User::UsersController < ApplicationController
     @users = User.all
     @user = User.find(params[:id])
   end
-  
+
   def followings
     @user = User.find(params[:user_id])
     @users = @user.followings.all
@@ -45,7 +45,7 @@ class User::UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @users = @user.followers.all
   end
-  
+
   #いいね一覧
   def goods
     @good_posts = current_user.good_posts

@@ -8,7 +8,7 @@ class User::InquiriesController < ApplicationController
 
   def create
     @inquiry = Inquiry.new(inquiry_params)
-    if @inquiry.save!
+    if @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver
       redirect_to new_inquiry_path
       flash[:email] = "お問い合わせが完了しました"

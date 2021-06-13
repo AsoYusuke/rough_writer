@@ -23,7 +23,7 @@
             <p class="card-body">
               <%= @post.body %><br>
             </p>
-            <%= attachment_image_tag @post, :image, size: '600x450', class:"attachment product product_image fallback"%><br>
+            <%= attachment_image_tag @post, :image, size: '600', class:"attachment product product_image fallback"%><br>
             <p class="card-edit text-secondary text-right mt-2">
               <% if @post.user == current_user %>
                 <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>

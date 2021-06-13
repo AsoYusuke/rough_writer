@@ -1,14 +1,11 @@
 <div class="card-list-containar py-5">
-      <table class='table table-hover table-inverse'>
-        <tbody>
-          <div class="index_search">
-            <h4 class="search-text">検 索 結 果</h4><br>
-            <%= render 'select_form', post: @post %>
-          </div>
-          <div id="post_index_all">
-            <%= render 'index_all', posts: @posts %>
-          </div>
-        </tbody>
-      </table>
-      <!--%= paginate @posts %>-->
+  <tbody>
+    <div class="index_search">
+      <h4 class="search-text">検 索 結 果</h4><br>
+      <%= render 'select_form', post: @post %>
+    </div>
+    <div id="post_index_all">
+      <%= render 'index_all', posts: @posts %>
+    </div>
+  </tbody>
 </div>
