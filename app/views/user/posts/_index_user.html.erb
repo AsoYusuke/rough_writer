@@ -1,5 +1,6 @@
 <h5 class="text-count"><%= posts.count %>件の投稿</h5>
 <% posts.each do |post| %>
+<% if post.bads.count < 10 %>
   <div class="card w-75 mx-auto mt-4 shadow-lg">
     <div class="card-body">
       <div class="row">
@@ -45,4 +46,6 @@
     <% end %>
     </div>
   </div>
+  <% else %>
+  <% end %>
 <% end %>
