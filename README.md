@@ -47,6 +47,6 @@ https://docs.google.com/spreadsheets/d/18sJrflPbpHnkF22NqgNnk_BZf_ZgN5K7oLR2KlN7
  （PFの場合は低評価１０で非表示）
 
 ##追記
-トップ画面更新（2021/06/13)
 
+トップ画面更新（2021/06/13)
 投稿画像サイズ変更、縦画像に対応（2021/06/14）
