@@ -9,7 +9,12 @@
   </head>
 
   <body>
+    <!--ヘッダー-->
     <%= render 'layouts/header' %>
+    <!--フラッシュメッセージ-->
+    <%= render '/layouts/flash' %>
     <%= yield %>
+    <!--フッター-->
+    <%= render 'layouts/footer' %>
   </body>
 </html>

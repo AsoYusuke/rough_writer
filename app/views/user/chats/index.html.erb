@@ -1,0 +1,23 @@
+<h3 class="text-center text-secondary mt-3">チャットルーム</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="row">
+      <% @anotherUserRooms.each do |user_room| %>
+        <div class="col-2 mt-4">
+          <%= attachment_image_tag user_room.user, :profile_image, size: "60x60", fallback: "no_image.jpg", class: "rounded-circle" %>
+        </div>
+        <div class="col-4 mt-4">
+          <%= User.find_by(id: user_room.user_id).name %><br>
+          <div class="text-secondary"><%= user_room.room.chats.last.message %></div>
+        </div>
+        <div class="col-4 my-4 text-secondary">
+          <%= user_room.room.chats.last.created_at.to_s(:datetime_jp) %>
+        </div>
+        <div class="col-2 mt-4">
+          <%= link_to '', chat_path(user_room.user), class: "btn btn-outline-secondary  btn-block far fa-comment-dots" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

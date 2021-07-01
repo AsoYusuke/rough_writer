@@ -1,3 +1,19 @@
-// Place all the styles related to the user::posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+strong {
+  font-size: 20px;
+}
+
+// post/new
+.new-post {
+  color : #666;
+}
+
+// post/search
+.index_search{
+  margin-left: 400px;
+  margin-bottom: 50px;
+}
+
+.search-text {
+  margin-left: 20px;
+  color: #666;
+}

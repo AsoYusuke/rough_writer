@@ -1,31 +1,68 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <table class="table">
-        <tbody>
-          <tr><%= attachment_image_tag current_user, :profile_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %></tr><br>
-          <tr><%= @user.name %></tr>
-          <tr>
-            <th>フォロー N</th>
-            <th>フォロワー N</th>
-          </tr>
-          <tr>
-            <th>自己紹介</th>
-            <th><%= @user.introduction %></th>
-          </tr>
-          <tr>
-            <th>生年月日</th>
-            <th><%= @user.birth_date %></th>
-          </tr>
-        </tbody>
-      </table>
-      <!--もしログインしているユーザーなら編集ボタンを表示-->
-      <% if @user.id == current_user.id %>
-        <div class='row'>
-          <%= link_to '',edit_user_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user}" %>
+    <div class="row">
+      <div class="col-4 text-center">
+        <tr><%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "no_image.jpg", class: "mt-3 rounded-circle" %></tr><br>
+        <div class="user-name my-2">
+          <tr><strong><%= @user.name %></strong></tr>
         </div>
-      <% end %>
-
+      </div>
+      <div class="col-7">
+        <div class="row">
+          <div class="col-5 offset-2 mt-5 text-center">
+            <%= link_to(user_followings_path(@user.id), class:"text-dark") do %>
+              <th><%= @user.follower.count %></th><br>
+              <th>フォロー</th>
+            <% end %>
+          </div>
+          <div class="col-5 mt-5 mb-3 text-center">
+            <%= link_to(user_followers_path(@user.id), class:"text-dark") do %>
+              <th><%= @user.followed.count %></th><br>
+              <th>フォロワー</th>
+            <% end %>
+          </div>
+        <!--もしログインしているユーザーなら編集ボタンを表示-->
+          <% if @user.id == current_user.id %>
+          <div class="col-5 offset-2 text-center">
+            <%= link_to '', edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user}" %>
+          </div>
+          <div class="col-5 text-center">
+            <%= link_to '', user_goods_path(@user), class: "btn btn-outline-secondary btn-block fas fa-thumbs-up" %>
+          </div>
+          <% end %>
+          <% if @user != current_user %>
+            <% if user_signed_in? %>
+            <div class="col-5 offset-2 text-center">
+              <% if current_user.following?(@user) %>
+                <%= link_to '', user_unfollow_path(@user.id), method: :POST, class: "btn btn-outline-secondary btn-block fas fa-user-check", style: "background-color: #0066FF; color: #FFFFFF" %>
+              <% else %>
+                <%= link_to '', user_follow_path(@user.id), method: :POST, class: "btn btn-outline-secondary btn-block fas fa-user-plus" %>
+              <% end %>
+            </div>
+            <div class="col-5 text-center">
+              <%= link_to '', chat_path(@user.id), class: "btn btn-outline-secondary  btn-block far fa-comment-dots" %>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="my-introduction mb-3">
+        <%= @user.introduction %>
+      </div>
+      </br>
+      <div class="birthday-icon fas fa-birthday-cake text-secondary">
+        <%= @user.birth_date %>
+      </div>
     </div>
   </div>
+</div>
+<div class="card-list-containar py-5">
+  <table class='table table-hover table-inverse'>
+    <tbody>
+      <div id="post_index_all">
+        <%= render 'user/posts/index_user', posts: @posts %>
+      </div>
+    </tbody>
+  </table>
 </div>
