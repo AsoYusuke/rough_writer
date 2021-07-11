@@ -126,10 +126,17 @@ ActiveRecord::Schema.define(version: 2021_05_28_215353) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+    t.string "user_status", default: "t"
+    t.string "profile_image_id"
+    t.text "introduction"
+    t.date "birth_date"
+=======
     t.string "profile_image_id"
     t.text "introduction"
     t.date "birth_date"
     t.boolean "user_status", default: true, null: false
+>>>>>>> master
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
